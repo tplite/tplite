@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>demo for mocro javascript template</title>
+  </head>
+  <body>
+    <script src="tpl.js"></script>
+    <script id="tpl" type="text/tpl">
+      <h1>{title}</h1>
+      {?messages}
+        {@message in messages}
+          <p>{message}</p>
+        {/messages}
+      {/messages}
+    </script>
+    <script>
+      console.log(window.render(document.getElementById('tpl').innerHTML))
+      document.write(window.render(document.getElementById('tpl').innerHTML, {title: 'Demo for mocro javascript template!', messages: ['test demo 1', 'test demo2']}))
+    </script>
+  </body>
+</html>
