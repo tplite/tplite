@@ -6,12 +6,12 @@
   <body>
     <script src="tpl.js"></script>
     <script id="tpl" type="text/tpl">
-      <h1>{title}</h1>
-      {?messages}
-        {@message in messages}
-          <p>{message}</p>
-        {/messages}
-      {/messages}
+      <h1>{{title}}</h1>
+      {% if (messages) { %}
+        {% messages.forEach(function(message){ %}
+          <p>{{message}}</p>
+        {% })%}
+      {% } %}
     </script>
     <script>
       console.log(window.render(document.getElementById('tpl').innerHTML))
