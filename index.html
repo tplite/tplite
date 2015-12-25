@@ -6,12 +6,26 @@
   <body>
     <script src="tpl.js"></script>
     <script id="tpl" type="text/tpl">
-      <h1>{{title}}</h1>
+      <!-- replace by Variables or expressions -->
+      <h1>
+        {{title}}
+      </h1>
+      <b>{{ encodeURIComponent(title)}}</b>
+
+      <!-- just using plain javascript code, example for conditional and loops -->
       {% if (messages) { %}
         {% messages.forEach(function(message){ %}
           <p>{{message}}</p>
         {% })%}
+        <!-- loops in another way -->
+        {% for (var i in messages){ %}
+          <p>{{messages[i]}}</p>
+        {% }%}
       {% } %}
+
+      <!-- set Variables -->
+      {% var testval = 'set var in template.' %}{{ testval }}
+
     </script>
     <script>
       console.log(window.render(document.getElementById('tpl').innerHTML))
