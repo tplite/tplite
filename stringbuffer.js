@@ -1,4 +1,6 @@
-
+/**
+ * copyright @Lloyd Zhou(lloydzhou@qq.com)
+ */
 (function(exports){
 
     exports.StringBuffer = function(){
