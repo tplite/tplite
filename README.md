@@ -36,7 +36,7 @@ variables or expressions will be replaced
 
 # Issue
 there's one known issue: 
-can not using "'" in html template.
+can not using ' in html template.
 
 # Demo 
 
