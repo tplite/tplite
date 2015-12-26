@@ -1,6 +1,6 @@
 # tplite
 The micro javascript template engine in just a few lines of code.
-> compressed in 354 byte without gzip.  
+> compressed in 334 byte without gzip.  
 > cache the compile template in function array.
 
 # Syntax
@@ -37,6 +37,25 @@ variables or expressions will be replaced
 # Issue
 there's one known issue: 
 can not using ' in html template.
+
+# Usage
+
+create new instance
+
+    var template = new Template()
+
+compile template into function
+
+    var compile = template("<h1>{{title}}</h1>")
+
+render the compile template by using callback
+
+    var stringbuffer = new StringBuffer()
+    compile({title: 'Title !!!'}, stringbuffer)
+    console.log(stringbuffer.toString())
+
+    // render template and write to document
+    compile({title: 'Title !!!'}, function(s){document.write(s);})
 
 # Demo 
 
