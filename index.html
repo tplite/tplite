@@ -29,6 +29,7 @@
     </script>
     <script>
       console.log(window.render(document.getElementById('tpl').innerHTML))
+      console.log(window.render(document.getElementById('tpl').innerHTML, {title: 'Demo for mocro javascript template!', messages: ['test demo 1', 'test demo2']}))
       document.write(window.render(document.getElementById('tpl').innerHTML, {title: 'Demo for mocro javascript template!', messages: ['test demo 1', 'test demo2']}))
     </script>
   </body>
