@@ -4,8 +4,8 @@
     <title>demo for mocro javascript template</title>
   </head>
   <body>
-    <script src="stringbuffer.min.js"></script>
-    <script src="tpl.min.js"></script>
+    <script src="stringbuffer.js"></script>
+    <script src="tpl.js"></script>
     <script id="tpl" type="text/tpl">
       <!-- replace by Variables or expressions -->
       <h1>
@@ -29,8 +29,8 @@
 
     </script>
     <script>
-      var template = new Template(), tmpl = document.getElementById('tpl').innerHTML,
-          logger = function(s){ console.log(s) }, writer = function(s) {document.write(s)}, out = new StringBuffer()
+      var template = new tplite.Template(), tmpl = document.getElementById('tpl').innerHTML,
+          logger = function(s){ console.log(s) }, writer = function(s) {document.write(s)}, out = new tplite.StringBuffer()
           data = {title: 'Demo for mocro javascript template!', messages: ['test demo 1', 'test demo2']}
       var compile = template(tmpl)
       //logger(compile)

@@ -1,5 +1,10 @@
-var StringBuffer = function(){
-    var data = [], callback = function(s){data.push(s)};
-    callback.toString = function(){return data.join('')}
-    return callback
-}
+
+(function(exports){
+
+    exports.StringBuffer = function(){
+        var data = [], callback = function(s){data.push(s)};
+        callback.toString = function(){return data.join('')}
+        return callback
+    }
+
+}(typeof exports === 'undefined' ? this.tplite = this.tplite || {} : exports));
