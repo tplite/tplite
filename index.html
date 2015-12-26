@@ -4,6 +4,7 @@
     <title>demo for mocro javascript template</title>
   </head>
   <body>
+    <script src="stringbuffer.js"></script>
     <script src="tpl.js"></script>
     <script id="tpl" type="text/tpl">
       <!-- replace by Variables or expressions -->
@@ -28,9 +29,10 @@
 
     </script>
     <script>
-      console.log(window.render(document.getElementById('tpl').innerHTML))
-      console.log(window.render(document.getElementById('tpl').innerHTML, {title: 'Demo for mocro javascript template!', messages: ['test demo 1', 'test demo2']}))
-      document.write(window.render(document.getElementById('tpl').innerHTML, {title: 'Demo for mocro javascript template!', messages: ['test demo 1', 'test demo2']}))
+      var template = new Template()
+      console.log(template(document.getElementById('tpl').innerHTML))
+      console.log(template(document.getElementById('tpl').innerHTML, {title: 'Demo for mocro javascript template!', messages: ['test demo 1', 'test demo2']}, new StringBuffer()))
+      document.write(template(document.getElementById('tpl').innerHTML, {title: 'Demo for mocro javascript template!', messages: ['test demo 1', 'test demo2']}, new StringBuffer()))
     </script>
   </body>
 </html>
