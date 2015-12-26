@@ -7,7 +7,9 @@
 
     window.render = function(tmpl, data) {
         FN[tmpl = tmpl || ''] = FN[tmpl] || new Function("_", "var o=[];with(_){" +
-            ("%}" + tmpl + "{%").replace(/([\\\n\r]|{{|}}|{%|%})/g, function(c) {return t[c]}) + "}return o.join('')")
+            ("%}" + tmpl + "{%").replace(/([\\\n\r]|{{|}}|{%|%})/g, function(tag) {
+              return replace_templae[tag]
+            }) + "}return o.join('')")
 
         try{ return data ? FN[tmpl](data) : FN[tmpl];}catch(e){ return e; }
     };
