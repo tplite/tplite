@@ -1,6 +1,6 @@
 # tplite
 The micro javascript template engine in just a few lines of code.
-> compressed in 354 byte without gzip.
+> compressed in 354 byte without gzip.  
 > cache the compile template in function array.
 
 # Syntax
@@ -34,7 +34,11 @@ variables or expressions will be replaced
       <!-- set Variables and display it -->
       {% var testval = 'set var in template.' %}{{ testval }}
 
-## Demo 
+# Issue
+there's one known issue: 
+can not using "'" in html template.
+
+# Demo 
 
 please see result in "index.html"
 
