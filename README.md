@@ -42,3 +42,7 @@ can not using ' in html template.
 
 please see result in "index.html"
 
+# Feature
+
+run in server side. and work with requirejs.
+
