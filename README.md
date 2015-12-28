@@ -1,7 +1,8 @@
 # tplite
 The micro javascript template engine in just a few lines of code.
 > compressed in 415 byte without gzip.  
-> cache the compile template in function array.
+> cache the compile template in function array.  
+> can run in both client and server side.  
 
 # Syntax
 
