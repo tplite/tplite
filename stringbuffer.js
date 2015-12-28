@@ -9,4 +9,4 @@
         return callback
     }
 
-}(typeof exports === 'undefined' ? this.tplite = this.tplite || {} : exports));
+}(typeof exports === 'undefined' ? this.tplite || (this.tplite = {}) : exports));
