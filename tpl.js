@@ -1,16 +1,24 @@
 /**
  * copyright @Lloyd Zhou(lloydzhou@qq.com)
  */
-;(function (window) {
-    var FN = {}, replace_templae = {"\\": "\\\\", "\n": "\\n", "\r": "\\r",
-        "{{": "');o.push(", "}}": ");o.push('", "{%": "');", "%}": "\no.push('"}
+(function(exports){
 
-    window.render = function(tmpl, data) {
-        FN[tmpl = tmpl || ''] = FN[tmpl] || new Function("_", "var o=[];with(_){" +
-            ("%}" + tmpl + "{%").replace(/([\\\n\r]|{{|}}|{%|%})/g, function(tag) {
-              return replace_templae[tag]
-            }) + "}return o.join('')")
+    exports.Template = function(){
+        var FN = {}, replace_templae = {"\\": "\\\\", "\n": "\\n", "\r": "\\r",
+            "{{": "');cb(", "}}": ");cb('", "{%": "');", "%}": "\ncb('"}
 
-        try{ return data ? FN[tmpl](data) : FN[tmpl];}catch(e){ return e; }
-    };
-})(window)
+        return function(tmpl, data, cb) {
+            FN[tmpl = tmpl || ''] = FN[tmpl] || new Function("_", "cb", "with(_){" +
+                ("%}" + tmpl + "{%").replace(/([\\\n\r]|{{|}}|{%|%})/g, function(tag) {
+                  return replace_templae[tag]
+                }) + "}return cb")
+
+            try{
+                return data ? FN[tmpl](data, cb) : FN[tmpl];
+            }catch(e){
+                return e;
+            }
+        };
+    }
+
+}(typeof exports === 'undefined' ? this.tplite || (this.tplite = {}) : exports));
