@@ -43,7 +43,7 @@ can not using ' in html template.
 
 create new instance
 
-    var template = new Template()
+    var template = new tplite.Template()
 
 compile template into function
 
@@ -51,7 +51,7 @@ compile template into function
 
 render the compile template by using callback
 
-    var stringbuffer = new StringBuffer()
+    var stringbuffer = new tplite.StringBuffer()
     compile({title: 'Title !!!'}, stringbuffer)
     console.log(stringbuffer.toString())
 
