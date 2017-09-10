@@ -1,9 +1,11 @@
 MAIN=tpl
+COMPONENT=component
 STRINGBUFFER=stringbuffer
 TARGET=tplite
 
 compile: merge yui
 	java -jar yuicompressor.jar $(MAIN).js -o $(MAIN).min.js
+	java -jar yuicompressor.jar $(COMPONENT).js -o $(COMPONENT).min.js
 	java -jar yuicompressor.jar $(STRINGBUFFER).js -o $(STRINGBUFFER).min.js
 	java -jar yuicompressor.jar $(TARGET).js -o $(TARGET).min.js
 
