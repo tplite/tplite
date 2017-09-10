@@ -15,8 +15,6 @@
         }
         function setState (newState){
           state = Object.assign({}, state||{}, newState||{});
-          var shouldUpdate = callbacks['shouldUpdate'];
-          var update = callbacks['update'];
           if (trigger('shouldUpdate')){
             render()
             requestAnimationFrame(function(){
