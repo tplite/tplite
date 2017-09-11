@@ -3,11 +3,35 @@
  */
 (function(exports){
 
+    exports.Template = function(){
+        var FN = {}, replace_templae = {"\\": "\\\\", "\n": "\\n", "\r": "\\r",
+            "{{": "');cb(", "}}": ");cb('", "{%": "');", "%}": "\ncb('"}
+
+        return function(tmpl, data, cb) {
+            FN[tmpl = tmpl || ''] = FN[tmpl] || new Function("_", "cb", "with(_){" +
+                ("%}" + tmpl + "{%").replace(/([\\\n\r]|{{|}}|{%|%})/g, function(tag) {
+                  return replace_templae[tag]
+                }) + "}return cb")
+
+            try{
+                return data ? FN[tmpl](data, cb) : FN[tmpl];
+            }catch(e){
+                return e;
+            }
+        };
+    }
+
+    exports.StringBuffer = function(){
+        var data = [], callback = function(s){data.push(s)};
+        callback.toString = function(){return data.join('')}
+        return callback
+    }
+
     exports.Component = function(root, tmpl, state, callbacks){
         var template = new tplite.Template();
         var compile = template(tmpl);
         var componet = {
-          state: state, render: render, setState: setState, trigger: trigger, root: root,
+          state: state, render: render, setState: setState, trigger: trigger
         };
         function trigger (name){
           var args = [].slice.call(arguments, 1)
@@ -18,7 +42,7 @@
           if (trigger('shouldUpdate')){
             render()
             requestAnimationFrame(function(){
-              trigger('onUpdate')
+              trigger('update')
             })
           }
           return state;
@@ -41,7 +65,7 @@
             return 'tplite.' + cbname + '(event)'
           }
         })
-        trigger('onInit')
+        trigger('init')
         return componet;
     }
 

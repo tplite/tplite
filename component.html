@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>demo for mocro javascript template</title>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script src="stringbuffer.js"></script>
+    <script src="tpl.js"></script>
+    <script src="component.js"></script>
+    <script id="tpl" type="text/tpl">
+      <!-- replace by Variables or expressions -->
+      <h1>
+        {{title}}
+      </h1>
+      <b>{{ encodeURIComponent(title)}}</b>
+
+      <!-- just using plain javascript code, example for conditional and loops -->
+      {% if (messages) { %}
+        {% messages.forEach(function(message, index){ %}
+          <p>
+           {{message}}
+           <a onclick="{{callback('view', message)}}" href="javascript:;">View</a>
+           <a onclick="{{callback('remove', index)}}" href="javascript:;">Remove</a>
+          </p>
+        {% })%}
+      {% } %}
+
+      <button onclick="{{callback('add')}}">ADD</button>
+
+    </script>
+    <script>
+      var root = document.getElementById("root")
+        , tmpl = document.getElementById("tpl").innerHTML
+        , initState = {title: 'Demo for mocro javascript template!', messages: ['test demo 1', 'test demo2']};
+
+      var app = new tplite.Component(root, tmpl, initState, {
+        view: function(message){
+          alert(message)
+        },
+        add: function(message){
+          var  messages = this.state.messages;
+          messages.push('test demo' + (messages.length + 1))
+          this.setState({ messages, messages })
+        },
+        remove: function(index){
+          var  messages = this.state.messages;
+          messages.splice(index, 1)
+          this.setState({ messages, messages })
+        },
+        onUpdate: function(){
+          console.log('update', this.state)
+        },
+      })
+
+    </script>
+  </body>
+</html>
+

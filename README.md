@@ -62,6 +62,38 @@ render the compile template by using callback
 
 please see result in "index.html"
 
+
+# Using with Component
+
+    var root = document.getElementById("root")
+      , tmpl = document.getElementById("tpl").innerHTML
+      , initState = {title: 'Demo for mocro javascript template!', messages: ['test demo 1', 'test demo2']};
+
+    var app = new tplite.Component(root, tmpl, initState, {
+      view: function(message){
+        alert(message)
+      },
+      add: function(message){
+        var  messages = this.state.messages;
+        messages.push('test demo' + (messages.length + 1))
+        this.setState({ messages, messages })
+      },
+      remove: function(index){
+        var  messages = this.state.messages;
+        messages.splice(index, 1)
+        this.setState({ messages, messages })
+      },
+      onUpdate: function(){
+        console.log('update', this.state)
+      }
+    })
+
+
+# Demo with Component
+
+please see result in "index.html"
+
+
 # Feature
 
 run in server side. and work with requirejs.
