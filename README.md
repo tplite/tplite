@@ -60,7 +60,7 @@ render the compile template by using callback
 
 # Demo 
 
-please see result in "index.html"
+please see result in ["index.html"](index.html)
 
 
 # Using with Component
@@ -93,7 +93,7 @@ please see result in "index.html"
 
 # Demo with Component
 
-please see result in "component.html"
+please see result in ["component.html"](component.html)
 
 
 # Feature
