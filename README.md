@@ -65,11 +65,17 @@ please see result in ["index.html"](index.html)
 
 # Using with Component
 
+bind add callbacks to click event in template.
+
+    <a onclick="{{bind('view', message)}}" href="javascript:;">View</a>
+    <button onclick="{{bind('add')}}">ADD</button>
+
+init app with params: root node, template, init state, and callbacks will bind to elememt.
+
     var root = document.getElementById("root")
       , tmpl = document.getElementById("tpl").innerHTML
       , initState = {title: 'Demo for mocro javascript template!', messages: ['test demo 1', 'test demo2']};
 
-    // init app with params: root node, template, init state, and callbacks will bind to elememt.
     var app = new tplite.Component(root, tmpl, initState, {
       view: function(message){
         alert(message)
