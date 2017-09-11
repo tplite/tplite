@@ -5,6 +5,7 @@
   </head>
   <body>
     <div id="root"></div>
+    <div id="root1"></div>
     <script src="dist/tplite-all.min.js"></script>
     <script id="tpl" type="text/tpl">
       <!-- replace by Variables or expressions -->
@@ -32,7 +33,7 @@
         , tmpl = document.getElementById("tpl").innerHTML
         , initState = {title: 'Demo for mocro javascript template!', messages: ['test demo 1', 'test demo2']};
 
-      var app = new tplite.Component(root, tmpl, initState, {
+      var callbacks = {
         view: function(message){
           alert(message)
         },
@@ -49,7 +50,9 @@
         onUpdate: function(){
           console.log('update', this.state)
         },
-      })
+      }
+
+      var app = new tplite.Component(root, tmpl, initState, callbacks)
 
     </script>
   </body>
