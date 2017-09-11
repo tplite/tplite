@@ -69,6 +69,7 @@ please see result in "index.html"
       , tmpl = document.getElementById("tpl").innerHTML
       , initState = {title: 'Demo for mocro javascript template!', messages: ['test demo 1', 'test demo2']};
 
+    // init app with params: root node, template, init state, and callbacks will bind to elememt.
     var app = new tplite.Component(root, tmpl, initState, {
       view: function(message){
         alert(message)
@@ -84,6 +85,7 @@ please see result in "index.html"
         this.setState({ messages, messages })
       },
       onUpdate: function(){
+        // will trigger when component render
         console.log('update', this.state)
       }
     })
@@ -91,10 +93,12 @@ please see result in "index.html"
 
 # Demo with Component
 
-please see result in "index.html"
+please see result in "component.html"
 
 
 # Feature
 
-run in server side. and work with requirejs.
+1. [todo MVC](http://todomvc.com/) demo
+2. run in server side. and work with requirejs.
+
 
