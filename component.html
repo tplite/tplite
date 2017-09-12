@@ -30,20 +30,23 @@
     </script>
     <script>
       var root = document.getElementById("root")
+        , root1 = document.getElementById("root1")
         , tmpl = document.getElementById("tpl").innerHTML
-        , initState = {title: 'Demo for mocro javascript template!', messages: ['test demo 1', 'test demo2']};
+        , initState = {title: 'Demo for mocro javascript template!', messages: ['test demo 1', 'test demo2'], index: 2}
 
       var callbacks = {
         view: function(message){
           alert(message)
         },
         add: function(message){
-          var  messages = this.state.messages;
-          messages.push('test demo' + (messages.length + 1))
-          this.setState({ messages, messages })
+          var messages = this.state.messages;
+          var index = this.state.index;
+          messages.push('test demo' + ++index)
+          this.setState({ messages, messages, index })
         },
-        remove: function(index){
-          var  messages = this.state.messages;
+        remove: function(index, e){
+          console.log('index: ', index, 'event: ', e)
+          var messages = this.state.messages;
           messages.splice(index, 1)
           this.setState({ messages, messages })
         },
@@ -52,7 +55,12 @@
         },
       }
 
-      var app = new tplite.Component(root, tmpl, initState, callbacks)
+      var app = new tplite.Component(tmpl, callbacks, initState, root)
+      var app1 = new tplite.Component(tmpl, callbacks).setState({
+        title: initState.title + '!!!',
+        messages: ['test demo 10'],
+        index: 10
+      }).mount(root1)
 
     </script>
   </body>
