@@ -1,10 +1,17 @@
 # tplite
+
+Component based on micro javascript template engine.
+> render by mocro template engine.
+> simple interface: render, mount, setState, trigger.
+> using scope function to bind event to DOM.
+
+
 The micro javascript template engine in just a few lines of code.
 > compressed in 415 byte without gzip.  
 > cache the compile template in function array.  
 > can run in both client and server side.  
 
-# Syntax
+# Template Syntax
 
 In short, statements must be included between percent signs and expressions must be placed between brackets.
 

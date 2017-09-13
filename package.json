@@ -1,0 +1,19 @@
+{
+  "name": "tplite",
+  "version": "0.1.0",
+  "description": "Component based on micro javascript template engine.",
+  "main": "dist/tplite-all.min.js",
+  "author": {
+    "name": "lloydzhou",
+    "email": "lloydzhou@qq.com"
+  },
+  "keywords": [
+    "Component",
+	"Template"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/lloydzhou/tplite"
+  },
+  "readmeFilename": "README"
+}
