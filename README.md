@@ -104,7 +104,7 @@ please see result in ["component.html"](component.html)
 
 # Feature
 
-1. [todo MVC](http://todomvc.com/) [demo](https://github.com/lloydzhou/todomvc/tree/master/examples/tplite)
+1. [todo MVC demo](https://github.com/lloydzhou/todomvc/tree/master/examples/tplite)
 2. run in server side. and work with requirejs.
 
 
