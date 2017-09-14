@@ -6,7 +6,8 @@
   <body>
     <div id="root"></div>
     <div id="root1"></div>
-    <script src="dist/tplite-all.min.js"></script>
+    <script src="lib/tplite.js"></script>
+    <script src="lib/component.js"></script>
     <script id="tpl" type="text/tpl">
       <!-- replace by Variables or expressions -->
       <h1>
@@ -19,13 +20,13 @@
         {% messages.forEach(function(message, index){ %}
           <p>
            {{message}}
-           <a onclick="{{bind('view', message)}}" href="javascript:;">View</a>
-           <a onclick="{{bind('remove', index)}}" href="javascript:;">Remove</a>
+           <a onclick="{{ view(message) }}" href="javascript:;">View</a>
+           <a onclick="{{ remove(index) }}" href="javascript:;">Remove</a>
           </p>
         {% })%}
       {% } %}
 
-      <button onclick="{{bind('add')}}">ADD</button>
+      <button onclick="{{ add() }}">ADD</button>
 
     </script>
     <script>
