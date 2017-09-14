@@ -115,3 +115,9 @@ please see result in ["component.html"](component.html)
 2. run in server side. and work with requirejs.
 
 
+# LICENSE
+
+Copyright 2014-2017 [@Lloyd Zhou](https://github.com/lloydzhou)
+
+Released under the MIT and GPL (version 2 or later) Licenses.
+
