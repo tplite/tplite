@@ -1,6 +1,6 @@
 {
   "name": "tplite",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Component based on micro javascript template engine.",
   "main": "dist/tplite-all.min.js",
   "author": {
