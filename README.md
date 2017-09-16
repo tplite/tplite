@@ -74,8 +74,10 @@ please see result in ["index.html"](index.html)
 
 bind add callbacks to click event in template.
 
+```
     <a onclick="{{view(message)}}" href="javascript:;">View</a>
     <button onclick="{{add()}}">ADD</button>
+```
 
 init app with params: root node, template, init state, and callbacks will bind to elememt.
 
