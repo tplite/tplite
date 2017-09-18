@@ -1,10 +1,10 @@
-node_modules/todomvc-app-css/*
-!node_modules/todomvc-app-css/index.css
+todomvc-app-css/*
+!todomvc-app-css/index.css
 
-node_modules/todomvc-common/*
-!node_modules/todomvc-common/base.css
-!node_modules/todomvc-common/base.js
+todomvc-common/*
+!todomvc-common/base.css
+!todomvc-common/base.js
 
-node_modules/.bin
-node_modules/tplite/*
-!node_modules/tplite/dist/tplite-all.min.js
+.bin
+tplite/*
+!tplite/dist/tplite-all.min.js
