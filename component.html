@@ -8,6 +8,11 @@
     <div id="root1"></div>
     <script src="lib/tplite.js"></script>
     <script src="lib/component.js"></script>
+    <script id="message" type="text/tpl">
+      {{message}}
+      <a onclick="{{ view(message) }}" href="javascript:;">View</a>
+      <a onclick="{{ remove(index) }}" href="javascript:;">Remove</a>
+    </script>
     <script id="tpl" type="text/tpl">
       <!-- replace by Variables or expressions -->
       <h1>
@@ -16,13 +21,9 @@
       <b>{{ encodeURIComponent(title)}}</b>
 
       <!-- just using plain javascript code, example for conditional and loops -->
-      {% if (messages) { %}
+      {% if (messages && messages.length > 0) { %}
         {% messages.forEach(function(message, index){ %}
-          <p>
-           {{message}}
-           <a onclick="{{ view(message) }}" href="javascript:;">View</a>
-           <a onclick="{{ remove(index) }}" href="javascript:;">Remove</a>
-          </p>
+          <p>{{sub(messageTmpl, messageCallbacks, {message: message, index: index})}}</p>
         {% })%}
       {% } %}
 
@@ -30,37 +31,49 @@
 
     </script>
     <script>
-      var root = document.getElementById("root")
-        , root1 = document.getElementById("root1")
-        , tmpl = document.getElementById("tpl").innerHTML
-        , initState = {title: 'Demo for mocro javascript template!', messages: ['test demo 1', 'test demo2'], index: 2}
-
       var callbacks = {
-        view: function(message){
-          alert(message)
-        },
         add: function(message){
           var messages = this.state.messages;
           var index = this.state.index;
           messages.push('test demo' + ++index)
           this.setState({ messages, messages, index })
         },
-        remove: function(index, e){
-          console.log('index: ', index, 'event: ', e)
-          var messages = this.state.messages;
-          messages.splice(index, 1)
-          this.setState({ messages, messages })
-        },
         onUpdate: function(){
           console.log('update', this.state)
+        }
+      };
+      var messageCallbacks = {
+        view: function(message){
+          alert(message)
         },
-      }
+        remove: function(index, e){
+          console.log('index: ', index, 'event: ', e, this.state.parent)
+          var messages = this.state.parent.state.messages;
+          messages.splice(index, 1)
+          this.state.parent.setState({ messages, messages })
+        }
+      };
+
+      var root = document.getElementById("root")
+        , root1 = document.getElementById("root1")
+        , tmpl = document.getElementById("tpl").innerHTML
+        , messageTmpl = document.getElementById("message").innerHTML
+        , initState = {
+          title: 'Demo for mocro javascript template!',
+          messages: ['test demo 1', 'test demo2'],
+          index: 2,
+          messageTmpl: messageTmpl,
+          messageCallbacks: messageCallbacks,
+        }
+
 
       var app = new tplite.Component(tmpl, callbacks, initState, root)
       var app1 = new tplite.Component(tmpl, callbacks).setState({
         title: initState.title + '!!!',
         messages: ['test demo 10'],
-        index: 10
+        index: 10,
+        messageTmpl: messageTmpl,
+        messageCallbacks: messageCallbacks,
       }).mount(root1)
 
     </script>
