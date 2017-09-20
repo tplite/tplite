@@ -72,14 +72,14 @@ please see result in ["index.html"](index.html)
 
 # Using with Component
 
-bind add callbacks to click event in template.
+bind add methods to click event in template.
 
 ```
     <a onclick="{{view(message)}}" href="javascript:;">View</a>
     <button onclick="{{add()}}">ADD</button>
 ```
 
-init app with params: root node, template, init state, and callbacks will bind to elememt.
+init app with params: root node, template, init state, and methods will bind to elememt.
 
     var root = document.getElementById("root")
       , tmpl = document.getElementById("tpl").innerHTML
