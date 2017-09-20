@@ -31,7 +31,7 @@
 
     </script>
     <script>
-      var callbacks = {
+      var methods = {
         add: function(message){
           var messages = this.state.messages;
           var index = this.state.index;
@@ -67,8 +67,8 @@
         }
 
 
-      var app = new tplite.Component(tmpl, callbacks, initState, root)
-      var app1 = new tplite.Component(tmpl, callbacks).setState({
+      var app = new tplite.Component(tmpl, methods, initState, root)
+      var app1 = new tplite.Component(tmpl, methods).setState({
         title: initState.title + '!!!',
         messages: ['test demo 10'],
         index: 10,

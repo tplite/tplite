@@ -32,7 +32,7 @@
           <input class="toggle-all" type="checkbox" {{allDone ? 'checked="checked"' : ''}} onclick="{{ toggleAll() }}">
           <ul class="todo-list">
             {% for (var todo of filteredTodos(todos, activeFilter)) { %}
-              {{sub(itemTmpl, itemCallbacks, { todo: todo })}}
+              {{sub(itemTmpl, itemMethods, { todo: todo })}}
             {% } %}
           </ul>
         </section>

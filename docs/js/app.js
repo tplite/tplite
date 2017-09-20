@@ -9,7 +9,7 @@
 	var tmpl = document.getElementById('todo').innerHTML;
 	var itemTmpl = document.getElementById('todoitem').innerHTML;
 	var root = document.getElementById('root');
-  var itemCallbacks = {
+  var itemMethods = {
 		toggleTodo(todo) {
 			todo.completed = !todo.completed
 			this.state.parent.setState()
@@ -100,7 +100,7 @@
 			})
 		},
     itemTmpl, itemTmpl,
-    itemCallbacks: itemCallbacks,
+    itemMethods: itemMethods,
 	}).mount(root)
 
 }());
