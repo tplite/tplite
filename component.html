@@ -68,7 +68,8 @@
 
 
       var app = new tplite.Component(tmpl, methods, initState, root)
-      var app1 = new tplite.Component(tmpl, methods).setState({
+      var component = new tplite.Component(tmpl, methods);
+      component({
         title: initState.title + '!!!',
         messages: ['test demo 10'],
         index: 10,

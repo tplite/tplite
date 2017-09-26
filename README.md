@@ -85,7 +85,7 @@ init app with params: root node, template, init state, and methods will bind to 
       , tmpl = document.getElementById("tpl").innerHTML
       , initState = {title: 'Demo for mocro javascript template!', messages: ['test demo 1', 'test demo2']};
 
-    var app = new tplite.Component(root, tmpl, initState, {
+    var app = new tplite.Component(tmpl, {
       view: function(message){
         alert(message)
       },
@@ -103,7 +103,7 @@ init app with params: root node, template, init state, and methods will bind to 
         // will trigger when component render
         console.log('update', this.state)
       }
-    })
+    }, initstate, root)
 
 
 # Demo with Component
