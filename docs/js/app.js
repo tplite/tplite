@@ -1,4 +1,4 @@
-/*global riot, todoStorage */
+/*global tplite, todoStorage */
 
 (function () {
 	'use strict';
@@ -99,8 +99,7 @@
 				return filter == 'all' ? true : filter == 'active' ? !t.completed : t.completed;
 			})
 		},
-    itemTmpl, itemTmpl,
-    itemMethods: itemMethods,
+    itemComponent: new tplite.Component(itemTmpl, itemMethods),
 	}).mount(root)
 
 }());

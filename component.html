@@ -23,7 +23,7 @@
       <!-- just using plain javascript code, example for conditional and loops -->
       {% if (messages && messages.length > 0) { %}
         {% messages.forEach(function(message, index){ %}
-          <p>{{sub(messageTmpl, messageCallbacks, {message: message, index: index})}}</p>
+          <p>{{messageComponent({message: message, index: index, parent: self}).render()}}</p>
         {% })%}
       {% } %}
 
@@ -62,19 +62,17 @@
           title: 'Demo for mocro javascript template!',
           messages: ['test demo 1', 'test demo2'],
           index: 2,
-          messageTmpl: messageTmpl,
-          messageCallbacks: messageCallbacks,
+          messageComponent: new tplite.Component(messageTmpl, messageCallbacks)
         }
 
 
-      var app = new tplite.Component(tmpl, methods, initState, root)
+      var app = new tplite.Component(tmpl, methods, initState, root);
       var component = new tplite.Component(tmpl, methods);
       component({
         title: initState.title + '!!!',
         messages: ['test demo 10'],
         index: 10,
-        messageTmpl: messageTmpl,
-        messageCallbacks: messageCallbacks,
+        messageComponent: new tplite.Component(messageTmpl, messageCallbacks)
       }).mount(root1)
 
     </script>
