@@ -18,7 +18,7 @@ merge:
 merge-with-component:
 	head --line=-2 lib/$(MAIN).js > lib/$(TARGETALL).js
 	tail --line=8 lib/$(STRINGBUFFER).js | head --line=6 >> lib/$(TARGETALL).js
-	tail --line=94 lib/$(COMPONENT).js >> lib/$(TARGETALL).js
+	tail --line=93 lib/$(COMPONENT).js >> lib/$(TARGETALL).js
 
 yui:
 	test -s ./yuicompressor.jar || wget https://github.com/yui/yuicompressor/releases/download/v2.4.8/yuicompressor-2.4.8.jar -O yuicompressor.jar
