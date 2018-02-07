@@ -23,7 +23,7 @@
       <!-- just using plain javascript code, example for conditional and loops -->
       {% if (messages && messages.length > 0) { %}
         {% messages.forEach(function(message, index){ %}
-          <p>{{messageComponent({message: message, index: index, parent: self}).render()}}</p>
+          <p>{{messageComponent({message: message, index: index, parent: self})}}</p>
         {% })%}
       {% } %}
 
