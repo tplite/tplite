@@ -11,6 +11,47 @@ The micro javascript template engine in just a few lines of code.
 > cache the compile template in function array.  
 > can run in both client and server side.  
 
+# Using with Component
+
+bind add methods to click event in template.
+
+```
+    <a onclick="{{view(message)}}" href="javascript:;">View</a>
+    <button onclick="{{add()}}">ADD</button>
+```
+
+init app with params: root node, template, init state, and methods will bind to elememt.
+
+    var root = document.getElementById("root")
+      , tmpl = document.getElementById("tpl").innerHTML
+      , initState = {title: 'Demo for mocro javascript template!', messages: ['test demo 1', 'test demo2']};
+
+    var app = new tplite.Component(tmpl, {
+      view: function(message){
+        alert(message)
+      },
+      add: function(message){
+        var  messages = this.state.messages;
+        messages.push('test demo' + (messages.length + 1))
+        this.setState({ messages, messages })
+      },
+      remove: function(index){
+        var  messages = this.state.messages;
+        messages.splice(index, 1)
+        this.setState({ messages, messages })
+      },
+      onUpdate: function(){
+        // will trigger when component render
+        console.log('update', this.state)
+      }
+    }, initstate, root)
+
+
+# Demo with Component
+
+please see result in ["component.html"](component.html)
+
+
 # Template Syntax
 
 In short, statements must be included between percent signs and expressions must be placed between brackets.
@@ -68,47 +109,6 @@ render the compile template by using callback
 # Demo 
 
 please see result in ["index.html"](index.html)
-
-
-# Using with Component
-
-bind add methods to click event in template.
-
-```
-    <a onclick="{{view(message)}}" href="javascript:;">View</a>
-    <button onclick="{{add()}}">ADD</button>
-```
-
-init app with params: root node, template, init state, and methods will bind to elememt.
-
-    var root = document.getElementById("root")
-      , tmpl = document.getElementById("tpl").innerHTML
-      , initState = {title: 'Demo for mocro javascript template!', messages: ['test demo 1', 'test demo2']};
-
-    var app = new tplite.Component(tmpl, {
-      view: function(message){
-        alert(message)
-      },
-      add: function(message){
-        var  messages = this.state.messages;
-        messages.push('test demo' + (messages.length + 1))
-        this.setState({ messages, messages })
-      },
-      remove: function(index){
-        var  messages = this.state.messages;
-        messages.splice(index, 1)
-        this.setState({ messages, messages })
-      },
-      onUpdate: function(){
-        // will trigger when component render
-        console.log('update', this.state)
-      }
-    }, initstate, root)
-
-
-# Demo with Component
-
-please see result in ["component.html"](component.html)
 
 
 # Feature
