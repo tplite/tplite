@@ -33,18 +33,18 @@ init app with params: root node, template, init state, and methods will bind to 
       add: function(message){
         var  messages = this.state.messages;
         messages.push('test demo' + (messages.length + 1))
-        this.setState({ messages, messages })
+        this.setState({ messages: messages })
       },
       remove: function(index){
         var  messages = this.state.messages;
         messages.splice(index, 1)
-        this.setState({ messages, messages })
+        this.setState({ messages: messages })
       },
       onUpdate: function(){
         // will trigger when component render
         console.log('update', this.state)
       }
-    }, initstate, root)
+    }, initState, root)
 
 
 # Demo with Component

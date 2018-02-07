@@ -36,7 +36,7 @@
           var messages = this.state.messages;
           var index = this.state.index;
           messages.push('test demo' + ++index)
-          this.setState({ messages, messages, index })
+          this.setState({ messages: messages, index })
         },
         onUpdate: function(){
           console.log('update', this.state)
@@ -50,7 +50,7 @@
           console.log('index: ', index, 'event: ', e, this.state.parent)
           var messages = this.state.parent.state.messages;
           messages.splice(index, 1)
-          this.state.parent.setState({ messages, messages })
+          this.state.parent.setState({ messages: messages })
         }
       };
 
