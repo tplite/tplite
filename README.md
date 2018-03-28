@@ -111,6 +111,24 @@ render the compile template by using callback
 please see result in ["index.html"](index.html)
 
 
+# loader
+
+webpack loader, to import tpl as compile function.
+
+```
+module.exports = {
+  // 
+  module: {
+    rules: [
+      {
+        test: /\.tpl$/,
+        loader: "tplite/loader"
+      }
+    ]
+  }
+};
+```
+
 # Feature
 
 1. [todo MVC demo](https://lloydzhou.github.io/tplite/), [source code](https://github.com/lloydzhou/todomvc/tree/master/examples/tplite)
