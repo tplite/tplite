@@ -122,7 +122,7 @@ module.exports = {
     rules: [
       {
         test: /\.tpl$/,
-        loader: "tplite/loader"
+        loader: "tplite-loader"
       }
     ]
   }
@@ -131,7 +131,7 @@ module.exports = {
 
 # Feature
 
-1. [todo MVC demo](https://lloydzhou.github.io/tplite/), [source code](https://github.com/lloydzhou/todomvc/tree/master/examples/tplite)
+1. [todo MVC demo](https://tplite.github.io/todomvc/), [source code](https://github.com/tplite/todomvc/)
 2. run in server side. and work with requirejs.
 
 
