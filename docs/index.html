@@ -18,7 +18,7 @@
           <label ondblclick="{{ editTodo(todo) }}">{{ todo.title }}</label>
           <button class="destroy" onclick="{{ removeTodo(todo) }}"></button>
          </div>
-         <input name="todoeditbox" class="edit" type="text" onblur="{{ doneEdit(todo) }}" onkeyup="{{ editKeyUp(todo) }}">
+         <input name="todoeditbox" class="edit" type="text" value={{todo.title}} onblur="{{ doneEdit(todo) }}" onkeyup="{{ editKeyUp(todo) }}">
       </li>
     </script>
     <script type="text/tpl" id="todo">
